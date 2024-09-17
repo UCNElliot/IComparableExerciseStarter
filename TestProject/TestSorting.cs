@@ -44,7 +44,8 @@ namespace TestProject
             //already done via Setup() method
 
             //Act
-            //... insert your code here :)
+            IComparer<Card> comparer = new HeartilySorter();
+            cards.Sort(comparer);
 
             //Assert
             bool areSorted = AreOrderedByHeartilyValue(cards);

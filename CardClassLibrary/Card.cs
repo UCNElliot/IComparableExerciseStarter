@@ -3,7 +3,7 @@
 namespace CardClassLibrary
 {
     public enum Suit {Empty, Hearts, Spades, Clubs, Diamonds }
-    public class Card
+    public class Card : IComparable<Card>
     {
         public Suit Suit { get; set; }
         public int Value { get; set; }
@@ -17,6 +17,22 @@ namespace CardClassLibrary
         public override string ToString()
         {
             return $"{Value} of {Suit}";
+        }
+
+        public int CompareTo(Card other)
+        {
+            if (other == null || this.Value == other.Value)
+            {
+                return 0;
+            }
+            else if (this.Value > other.Value)
+            {
+                return 1;
+            }
+            else
+            {
+                return -1;
+            }
         }
     }
 }
